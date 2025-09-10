@@ -71,12 +71,17 @@ if (withdrawAmount <= accountThree.balance) {
 let transferAmount = 2000;
 let transferOutCurrency = accountThree.currency;
 let transferInCurrency = accountOne.currency;
+
+if(transferOutCurrency == transferInCurrency){
  
-if(transferAmount <= accountThree.balance && transferOutCurrency == transferInCurrency){
-    accountThree.balance -= transferAmount;
-    accountOne.balance += transferAmount;
-    console.log(`AccountThree Withdrawn: ${accountThree.balance}`       )
-    console.log(`AccountOne Topped up: ${accountOne.balance}`)
+    if(transferAmount <= accountThree.balance){
+        accountThree.balance -= transferAmount;
+        accountOne.balance += transferAmount;
+        console.log(`AccountThree Withdrawn: ${accountThree.balance}`       )
+        console.log(`AccountOne Topped up: ${accountOne.balance}`)
+    }else{
+        console.log("Transfer failed, insufficient funds");
+    }
 }else{
     console.log("Transfer failed, currency mismatch");
 }
@@ -85,12 +90,17 @@ if(transferAmount <= accountThree.balance && transferOutCurrency == transferInCu
 transferAmount = 7000;
 transferOutCurrency = accountTwo.currency;
 transferInCurrency = accountOne.currency
- 
-if(transferAmount <= accountTwo.balance && transferOutCurrency == transferInCurrency){
-    accountTwo.balance -= transferAmount;
-    accountOne.balance += transferAmount;
-    console.log(`AccountThree Withdrawn: ${accountTwo.balance}`       )
-    console.log(`AccountOne Topped up: ${accountOne.balance}`)
+
+if(transferOutCurrency == transferInCurrency){
+
+    if(transferAmount <= accountTwo.balance){
+        accountTwo.balance -= transferAmount;
+        accountOne.balance += transferAmount;
+        console.log(`AccountThree Withdrawn: ${accountTwo.balance}`       )
+        console.log(`AccountOne Topped up: ${accountOne.balance}`)
+    }else{
+        console.log("Transfer failed, insufficient funds");
+    }
 }else{
     console.log("Transfer failed, currency mismatch");
 }
@@ -140,6 +150,7 @@ let highestBalance
 let lowestBalance
 
 //highest balance
+
 if(accountOne.balance > accountTwo.balance && 
     accountOne.balance > accountThree.balance &&
     accountOne.balance > accountFour.balance){
@@ -291,12 +302,16 @@ function currencyConverter(){
 transferAmount = 700;
 transferOutCurrency = accountFive.currency;
 transferInCurrency = accountOne.currency
- 
-if(transferAmount <= accountFive.balance && transferOutCurrency == transferInCurrency){
-    accountFive.balance -= transferAmount;
-    accountOne.balance += transferAmount;
-    console.log(`AccountFive Withdrawn: ${accountFive.balance}`)
-    console.log(`AccountOne Topped up: ${accountOne.balance}`)
+
+if(transferOutCurrency == transferInCurrency){
+    if(transferAmount <= accountTwo.balance){
+            accountTwo.balance -= transferAmount;
+            accountOne.balance += transferAmount;
+            console.log(`AccountThree Withdrawn: ${accountTwo.balance}`       )
+            console.log(`AccountOne Topped up: ${accountOne.balance}`)
+    }else{
+            console.log("Transfer failed, insufficient funds");
+    }
 }else{
     currencyConverter(transferAmount);
     accountFive.balance -= transferAmount;
@@ -304,3 +319,4 @@ if(transferAmount <= accountFive.balance && transferOutCurrency == transferInCur
     console.log(`AccountFive Withdrawn: ${accountFive.balance}`)
     console.log(`AccountOne Topped up: ${accountOne.balance}`)
 }
+
