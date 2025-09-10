@@ -100,39 +100,39 @@ if(transferAmount <= accountTwo.balance && transferOutCurrency == transferInCurr
 let type = accountOne.type
 const interest = 1.02
 const fees = 50
-let balance = accountOne.balance
+// let balance = accountOne.balance
 if(type == "Savings"){
-    balance *= interest
+    accountOne.balance *= interest
 
 }else if(type == "Checkings"){
-    balance -= fees
+    accountOne.balance -= fees
 }
 
 type = accountTwo.type
-balance = accountTwo.balance
+
 if(type == "Savings"){
-    balance *= interest
+    accountTwo.balance *= interest
 
 }else if(type == "Checkings"){
-    balance -= fees
+    accountTwo.balance -= fees
 }
 
 type = accountThree.type
-balance = accountThree.balance
+
 if(type == "Savings"){
-    balance *= interest
+    accountThree.balance *= interest
 
 }else if(type == "Checkings"){
-    balance -= fees
+    accountThree.balance -= fees
 }
 
 type = accountFour.type
-balance = accountFour.balance
+
 if(type == "Savings"){
-    balance *= interest
+    accountFour.balance *= interest
 
 }else if(type == "Checkings"){
-    balance -= fees
+    accountFour.balance -= fees
 }
 
 //Question 6 : Comparisons
